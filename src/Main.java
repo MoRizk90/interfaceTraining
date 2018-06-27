@@ -1,8 +1,21 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Main {
+public class  Main {
     public static void main(String[] args) {
+
+        Isavable tim = new Player("Mo",20,25);
+//        System.out.println(tim.toString());
+//        saveObjects(tim);
+//        ((Player) tim).setHitPoints(10);
+//        System.out.println(tim);
+//        ((Player) tim).setWeapon("Laser Killer");
+//        ((Player) tim).setStrength(35);
+//        saveObjects(tim);
+        Isavable wereWolf = new Monster("werewolf",20,35);
+        ((Monster) wereWolf).getStrength();
+        saveObjects(wereWolf);
+
 
     }
 
@@ -14,7 +27,7 @@ public class Main {
         Scanner keyBoardEnrty = new Scanner(System.in);
 
         //3) the below variable was created to be used in the while loop in the op
-        boolean quit = true;
+        boolean quit = false;
 
         // 4)
         int index = 0;
@@ -42,7 +55,7 @@ public class Main {
                 case 1:
                     System.out.println("Enter a string: ");
                     String stringInput = keyBoardEnrty.nextLine();
-                    values.add(1, stringInput);
+                    values.add(index, stringInput);
                     index++;
                     break;
 
@@ -56,6 +69,12 @@ public class Main {
         for (int i = 0; i < objectToSave.write().size(); i++){
             System.out.println("Saving " + objectToSave.write().get(i) + " to storage device");
 
+
         }
+    }
+
+    public static void loadObject(Isavable objetToLoad){
+         ArrayList<String> values = readToValue();
+         objetToLoad.read(values);
     }
 }
